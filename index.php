@@ -27,8 +27,6 @@
         contact_us();
     else if($request == "login")
         login();
-    else if($request == "product/:id")
-        product();
     else
         page404();
 ?>

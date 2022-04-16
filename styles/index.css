@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none !important;
+}
+:root{
+    --primary-dark-gtek:#0B001B;
+    --primary-red-gtek:#EC0000;
+    --primary-white-gtek:#B6B6B6;
+}

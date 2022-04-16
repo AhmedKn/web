@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+nav.navbar{
+    width: 100vw;
+    background-color: var(--primary-dark-gtek);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+nav.navbar img{
+    width: 280px;
+}
+nav.navbar input{
+    width: 20vw;
+    padding: 10px 20px 10px 40px;
+    border-radius: 50px;
+    border: none;
+    position: relative;
+}
+nav.navbar div.navbar-input-group{
+    position: relative;
+}
+nav.navbar span{
+    position: absolute;
+    left: 11px;
+    bottom: 7px;
+}
+nav.navbar span i{
+    font-size: 18px;
+    color: #aaa;
+    border-right: 1px solid #d9d9d9;
+    padding-right: 7px;
+}
+nav.navbar div.nav-btns{
+    display: flex;
+}
+nav.navbar div.nav-btns a{
+    margin: 0 2px;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    z-index: 20;
+    background-color: var(--primary-dark-gtek);
+}
+nav.navbar .rgb-border{
+    background: var(--primary-dark-gtek);
+    background: linear-gradient( #fd004c, #fe9000, #fff020, #3edf4b, #3363ff, #b102b7, #fd004c );
+    margin: 0 10px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    position: relative;
+    animation: spin 5s linear infinite;
+}
+nav.navbar .rgb-border::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(4px);
+}
+@keyframes spin {
+    
+    100%{
+        background-position: 400px 300px;
+    }
+}
