@@ -1,0 +1,134 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+   
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+  }
+  
+  .left{
+    width: 45%;
+    position: relative;
+  }
+  .center{
+    width: 30%;
+    position: relative;
+  }
+  .right{
+    width: 30%;
+    position: relative;
+    background-color: blac;
+  }
+  .left img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+  .produit-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 20px;
+  }
+  .produit-description span {
+    font-size: 12px;
+    color: #358ED7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .produit-description{
+      padding: 0px;
+      margin:0px;
+  }
+  .produit-description h1 {
+    font-weight:bold;
+    font-size: 18px;
+    color: #ED1D24;
+    letter-spacing: 0.2px;
+    
+  }
+  .produit-description h3 {
+    font-weight:bold;
+    font-size: 25px;
+    color:black;
+    letter-spacing: 0.2px;
+    font-family: Jazz LET, fantasy;  
+  }
+  .produit-description h5 {
+    font-weight:bold;
+    color:black;
+    letter-spacing: 0.2px;
+    
+  }
+ .center h2{
+    font-weight:bold;
+    font-size: 18px;
+    color:black;
+    letter-spacing: 0.2px; 
+ }
+ .center table{
+    width:23em;
+    border-spacing:1px;
+ }
+ .center td,th {
+    padding:6px 12px;
+    }
+    .center th {
+    text-align:left;
+    }
+    .center tr:nth-child(odd) {
+    background:#eee;
+    }
+    .center tr:nth-child(even) {
+    background:#ddd;
+    }
+   
+
+  .produit-description p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #3e4444;
+    line-height: 24px;
+  }
+  .caracteristique{
+      margin-left: 50px;
+      margin-top: 30px;
+      padding: 20px;
+  }
+  .caracteristique h1{
+    font-weight:bold;
+    font-size: 18px;
+    color:Black;
+    letter-spacing: 0.2px;
+  }
+  .caracteristique table{
+    width:100%;
+  }
+  .caracteristique table,tr,td{
+    
+    border-collapse:collapse;
+  border: 1px solid gray;
+  }
+
+  .caracteristique td,th {
+    padding:10px 12px;
+    font-size:15px;
+
+    }
+    .caracteristique th {
+    text-align:left;
+    color: lightslategray;
+    }
+    .caracteristique td{
+
+    }
+   
+   

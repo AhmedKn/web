@@ -73,3 +73,7 @@ nav.navbar .rgb-border::before{
         background-position: 400px 300px;
     }
 }
+
+nav.navbar div.nav-btns a:hover{
+    background-color: #1c0340;
+}
