@@ -7,8 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-        echo $_GET["id"];
-    ?>
+    <?php echo $_GET["id"]  ?>
 </body>
 </html>
