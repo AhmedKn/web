@@ -22,5 +22,11 @@
             require_once("./navigator.php");
         ?>
     </header>
+    <main>
+        <?php 
+            require_once("./carousel.php");
+
+        ?>
+    </main>
 </body>
 </html>

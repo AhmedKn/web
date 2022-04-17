@@ -21,19 +21,19 @@
     <ul class="navigator">
         <li><a href="/route"><i class="fas fa-home"></i></a></li>
         <?php while($t=mysqli_fetch_array($res)){  ?>
-            <li class="cat"><a  href="/route/categorie.php?id=<?php echo $t['id_categorie'] ?>"><?php echo $t['libellé'] ?></a></li>
+            <li class="cat"><a  href="/route/categorie.php?id=<?php echo $t['id_categorie'] ?>"><?php echo $t['libelle'] ?></a></li>
         <?php }} ?>
-        <?php 
+        <!-- <?php 
             if(mysqli_num_rows($res2)!=0){            
         ?>
         <li class='marque'><a href='/route'>Marque <i class='fas fa-angle-down'></i></a>
-                <div>
-                    <?php while($m=mysqli_fetch_array($res2)){  ?>
+                <div> -->
+                    <!-- <?php while($m=mysqli_fetch_array($res2)){  ?>
                         <a href="/route/marque.php?id=<?php echo$m['id_marque'] ?>"><?php echo $m['brand'] ?></a>
                     <?php } ?>
                 </div>
         </li>
-        <?php  } ?>
+        <?php  } ?> -->
 
         <li><a href="/route/panier.php"><i class="fas fa-shopping-cart"></i></a></li>
             

@@ -9,3 +9,6 @@
     --primary-red-gtek:#EC0000;
     --primary-white-gtek:#B6B6B6;
 }
+body{
+    overflow-y: hidden;
+}
