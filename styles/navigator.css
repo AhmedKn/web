@@ -36,12 +36,13 @@ ul.navigator li.marque{
 }
 ul.navigator li.marque div{
     position: absolute;
-    display: none;
+    display: flex !important;
     flex-direction: column;
     background-color: var(--primary-dark-gtek);
-    top: 35px;
-    left: 0;
+    top: 15px;
+    left: -1px;
     list-style: none;
+    z-index: -7;
 }
 
 ul.navigator li.marque div a{
@@ -52,14 +53,14 @@ ul.navigator li.marque div a{
     text-transform: capitalize;
 }
 ul.navigator li.marque:hover div{
-    display: flex;
+    z-index: 109;
 }
 
 ul.navigator li:last-child{
     margin-left: auto;
 }
 ul.navigator li:last-child a{
-    padding: 11px 13px;   
+    padding: 11px 20px !important;
     border-left: 1px solid #535353;
 }
 ul.navigator li:last-child i{
