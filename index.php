@@ -7,11 +7,14 @@
     function login(){
         require_once("./login.php");
     }
+    function signup(){
+        require_once("./signup.php");
+    }
     function about_us(){
         echo 'This is about us page. About Us template in HTML.';
     }
     function contact_us(){
-        echo 'This is contact us page. Contact Us template in HTML.';
+        echo "This is contact us page. Contact Us template in HTML.";
     }
     function product(){
         require_once("./product.php");
@@ -27,6 +30,8 @@
         contact_us();
     else if($request == "login")
         login();
+        else if($request == "sign-up")
+        signup();
     else
         page404();
 ?>
