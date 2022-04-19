@@ -12,15 +12,12 @@
     
   <?php
   
-    require('config.php');
-    session_start();
+    require('connect.php');
     if (isset($_POST['email'])){
-      $email = stripslashes($_REQUEST['email']);
-      $email = mysqli_real_escape_string($conn, $email);
-      $mdp = stripslashes($_REQUEST['mdp']);
-      $mdp = mysqli_real_escape_string($conn, $mdp);
-        $query = "SELECT * FROM `users` WHERE email='$email' and mdp='".hash('sha256', $mdp)."'";
-      $result = mysqli_query($conn,$query) or die(mysql_error());
+      $email = $_POST['email'];
+      $mdp = $_POST['mdp'];
+     $query = "SELECT * FROM client WHERE email='$email' and mdp='$mdp'";
+      $result = mysqli_query($con,$query) or die(mysqli_error($con));
       $rows = mysqli_num_rows($result);
       if($rows==1){
           $_SESSION['email'] = $email;
@@ -32,12 +29,12 @@
   ?>
     <div class="login-box">
       <h1>Se connecter</h1>
-      <form method="post">
+      <form method="post" action="">
         <label><b>Email</b></label>
-        <input type="email" placeholder="Taper votre email" />
+        <input type="email" name="email" placeholder="Taper votre email" />
         <label><b>Mot de passe</b></label>
         <input type="password" placeholder="Entrer votre mot de passe" name="mdp" id="mdp" required>
-        <input type="button" value="Connexion" />
+        <input type="submit" value="Connexion" />
       </form>
     </div>
     <p class="para-2">

@@ -109,7 +109,7 @@ function verif_formulaire()
         <input type="tel" name="telphone" id ="telephone" length="8" required/>    
         
 
-        <input type="button" value="Créer un compte" onclick="verif_formulaire()">
+        <input type="submit" value="Créer un compte" onclick="verif_formulaire()">
       </form>
       <p>
         En cliquant sur créer un compte,vous acceptez nos <br />
@@ -153,37 +153,37 @@ else(isset($_POST['save']))
 */
 ?>
 <?php
-require('config.php');
-if (isset($_REQUEST['nom'],$_REQUEST['prenom'], $_REQUEST['email'], $_REQUEST['mdp'])){
+require('connect.php');
+if (isset($_POST['nom'],$_POST['prenom'], $_POST['email'], $_POST['mdp'])){
   // récupérer le nom d'utilisateur et supprimer les antislashes ajoutés par le formulaire
-  $nom = stripslashes($_REQUEST['nom']);
-  $nom = mysqli_real_escape_string($conn, $nom);
+  $nom = $_POST['nom'];
+  
    // récupérer le prenom d'utilisateur et supprimer les antislashes ajoutés par le formulaire 
-  $prenom = stripslashes($_REQUEST['prenom']);
+  $prenom = stripslashes($_POST['prenom']);
   $prenom = mysqli_real_escape_string($conn, $prenom); 
   // récupérer l'email et supprimer les antislashes ajoutés par le formulaire
-  $email = stripslashes($_REQUEST['email']);
+  $email = stripslashes($_POST['email']);
   $email = mysqli_real_escape_string($conn, $email);
   // récupérer le mot de passe et supprimer les antislashes ajoutés par le formulaire
-  $mdp = stripslashes($_REQUEST['mdp']);
+  $mdp = stripslashes($_POST['mdp']);
   $mdp = mysqli_real_escape_string($conn, $mdp);
    // récupérer la ville et supprimer les antislashes ajoutés par le formulaire
-   $ville = stripslashes($_REQUEST['ville']);
+   $ville = stripslashes($_POST['ville']);
    $ville = mysqli_real_escape_string($conn, $ville);
    // récupérer le code postal et supprimer les antislashes ajoutés par le formulaire
-  $code_postal = stripslashes($_REQUEST['code_postal']);
+  $code_postal = stripslashes($_POST['code_postal']);
   $code_postal = mysqli_real_escape_string($conn, $code_postal);
    // récupérer l'adresse d'utilisateur et supprimer les antislashes ajoutés par le formulaire
-   $adresse = stripslashes($_REQUEST['adresse']);
+   $adresse = stripslashes($_POST['adresse']);
    $adresse = mysqli_real_escape_string($conn, $adresse);
   // récupérer num tel d'utilisateur et supprimer les antislashes ajoutés par le formulaire
-   $telephone = stripslashes($_REQUEST['telephone']);
+   $telephone = stripslashes($_POST['telephone']);
   $telephone = mysqli_real_escape_string($conn, $telephone);
   //requéte SQL + mot de passe crypté
-    $query = "INSERT into `client` (nom, prenom, email, mdp, ville, code_postal, adresse, telephone)
+    $query = "INSERT into client (nom, prenom, email, mdp, ville, code_postal, adresse, telephone)
               VALUES ('$nom','$prenom', '$email', '".hash('sha256', $mdp)."', '$ville', '$code_postal', '$adresse', '$telephone')";
   // Exécuter la requête sur la base de données
-    $res = mysqli_query($conn, $query);
+    $res = mysqli_query($con, $query);
     if($res){
        echo "<div class='sucess'>
              <h3>Vous êtes inscrit avec succès.</h3>
