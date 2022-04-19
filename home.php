@@ -24,6 +24,7 @@
     </header>
     <main>
         <?php 
+        session_start();
             require_once("./carousel.php");
 
         ?>
