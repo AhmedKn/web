@@ -29,6 +29,7 @@
     </header>
     <main>
         <?php 
+        
             require_once("./carousel.php");
             require_once("./promotion.php");
             require_once("./descript.php");
