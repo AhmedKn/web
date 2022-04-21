@@ -31,12 +31,10 @@
                     </h3>
                     <p class="post-description"><?php echo$t['description'] ?></p>
                     <span class="post-date"><i class="fa fa-clock-o"></i><?php echo$t['prix'] ?> TND</span>
-                    <a href="/route/product.php?id=<?php echo$t['id_produit'] ?>" class="read-more"><?php echo$t['promoprix'] ?> TND</a>
+                    <a onclick="disp({id:<?php echo$t['id_produit']; ?>,lib:'<?php echo$t['lib']; ?>',prix:<?php echo$t['prix']; ?>,prixpromo:<?php echo$t['promoprix']; ?>,img:'<?php echo$t['photo']; ?>',quantite:1})"  class="read-more"><?php echo$t['promoprix'] ?> TND</a>
                 </div>
             </div>
         <?php } ?>
-        
-
         <div class="owl-buttons"><div class="owl-prev"></div><div class="owl-next"></div></div>
       </div>
     </div>

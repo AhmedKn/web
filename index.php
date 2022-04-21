@@ -19,6 +19,9 @@
     function product(){
         require_once("./product.php");
     }
+    function panier(){
+        require_once("./panier.php");
+    }
     function page404(){
         die('Page not found. Please try some different url.');
     }
@@ -30,8 +33,10 @@
         contact_us();
     else if($request == "login")
         login();
-        else if($request == "sign-up")
+    else if($request == "sign-up")
         signup();
+    else if($request==="panier")
+        panier();
     else
         page404();
 ?>
