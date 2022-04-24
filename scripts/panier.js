@@ -23,12 +23,20 @@ function updateQuan(){
         if(ppp>=1){
             arr.push(ppp);
             i=i+1;
-            console.log(arr);
+            var json_str = localStorage.getItem('PANIER');
+            var a = JSON.parse(json_str);
+
+            a.map((el,i) =>{el.quantite=arr[i];console.log(el.quantite)})
+            var upquan = JSON.stringify(a);
+            localStorage.setItem('PANIER', upquan);
+            console.log(upquan);
+                    console.log(arr);
         }
         else{
             k=false;
         }
     }    
+   
 }
 function updatecart() {
     var total = 0;
@@ -51,7 +59,7 @@ function updatecart() {
   h2.appendChild(document.createTextNode('Votre panier est vide !'));
   div.appendChild(h2);
   cart.appendChild(div)
-  let tot=document.getElementById("thecost")
+  let tot=document.getElementById("total-price-section")
   tot.remove();
 }
   }
@@ -117,15 +125,19 @@ else{
     //  </i>Shopping Bag Total: <span id="thecost">1800$</span></p>
     let tot=document.createElement("div");
     tot.classList.add("total-price-section");
-
+    tot.setAttribute("id","total-price-section");
     let tit=document.createElement("p");
     tit.appendChild(document.createTextNode("Total :"));
     tot.appendChild(tit)
     
     let total=document.createElement("span");
     total.setAttribute("id","thecost");
-
+    //add button commander
+    let cmnd=document.createElement("button");
+    cmnd.setAttribute("id","commandbtn")
+    cmnd.appendChild(document.createTextNode("Commander"));
     tot.appendChild(total)
+    tot.appendChild(cmnd)
     cart.appendChild(tot)
     updatecart();
     //functionnalities
@@ -180,4 +192,20 @@ function updatecart1() {
        })
      }
   }
-  addEventListener('click',addone())
+  addEventListener('click',addone());
+  if(arr!==null || arr!==undefined || arr.length!==0 || arr!==[]){
+    let btn=document.getElementById("commandbtn");
+    btn.addEventListener("click",function(){
+        let user=localStorage.getItem("user");
+        if(user===undefined || user===null || user==="not connected"){
+            
+        }
+        else{
+            var id = localStorage.getItem('id');
+            let cost=document.getElementById("thecost").innerHTML;
+            cost=cost.replace("TND","");
+            localStorage.setItem("cost",cost);
+             window.location.href=`/route/commander.php?id=${id}&cost=${cost}`;
+        }
+    })
+    }

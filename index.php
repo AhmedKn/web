@@ -22,6 +22,9 @@
     function panier(){
         require_once("./panier.php");
     }
+    function commander(){
+        require_once("./commander.php");
+    }
     function page404(){
         die('Page not found. Please try some different url.');
     }
@@ -37,6 +40,8 @@
         signup();
     else if($request==="panier")
         panier();
+    else if($request==="commander")
+        commander();
     else
         page404();
 ?>
