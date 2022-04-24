@@ -13,7 +13,7 @@
         $req="select * from categorie where home=1;";
         $res=mysqli_query($con,$req) or die("request is not working;");
         $req2="select * from marque";
-        $res2=mysqli_query($con,$req2) or die("request is not working;");
+        $res2=mysqli_query($con,$req2) or die(mysqli_error($con));
 
         if(mysqli_num_rows($res)!=0){
             
