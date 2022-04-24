@@ -29,23 +29,39 @@
             <div id="idsec">
                 <?php $cost=$_GET["cost"];
                 $bol=true;
-                $prod='[{"id":2,"lib":"Pc sur Mesure ALPHA-OSCAR I","prix":2300,"prixpromo":2999,"img":"https://www.scoopgaming.com.tn/15113-thickbox_default/pc-sur-mesure-alpha-oscar-i-i3-10eme-8go-gtx-1050-ti.jpg","quantite":1},{"id":3,"lib":"Ecran Gamer MSI Optix","prix":800,"prixpromo":699,"img":"https://www.scoopgaming.com.tn/12133-thickbox_default/ecran-gamer-msi-optix-g24c4-24-fhd-1ms-144hz.jpg","quantite":1}]';
+                $prod=$_GET['prod'];
                 $obj = json_decode($prod);
-                foreach($obj as $item) {
-                    echo $item->id;
-                    echo $item->lib;
-                }
+                
                 require_once("./connect.php");
                 $user_id=$_GET["id"];
                 $req="select * from client where id_client='$user_id';";
                 $res=mysqli_query($con,$req) or die(mysqli_error($con));
                 $t=mysqli_fetch_array($res);
                 if(isset($_POST["confirm"])){
-                    $query="INSERT INTO commande (id_client,montant,date_enregistrement,etat) VALUES ('$user_id', '$cost',  '2022-04-01','livré');";
+                    $date = date('Y-m-d H:i:s');
+                    $query="INSERT INTO commande (id_client,montant,date_enregistrement,etat) VALUES ('$user_id', '$cost',  '$date','livré');";
                     $rest = mysqli_query($con, $query) or die(mysqli_error($con));
+                    $quer=mysqli_query($con,"SELECT * FROM commande where id_client='$user_id' AND montant='$cost' AND date_enregistrement='$date'") or die(mysqli_error($con));
+                    $restt=mysqli_fetch_array($quer);
+                    $id_com=$restt['id_commande'];
+                    foreach($obj as $item) {
+                        $quantity=$item->quantite;
 
+                        $id_prod=$item->id;
+                        if($item->prixpromo>0){
+                            $prix=$item->prixpromo;
+                            
+                        }
+                        else{
+                            $prix=$item->prix;
+                        }
+                        $prixtot=floatval($prix)*intval($quantity);
+                        $que="INSERT INTO details_commande(id_commande,id_produit,quantite,prix_unitaire,prix_tot) VALUES ('$id_com','$id_prod','$quantity','$prix','$prixtot')"; //inserting values here
+                        $result=mysqli_query($con,$que) or die(mysqli_error($con));
+                    }
                     if($rest){
                         $bol=false;
+                        echo "<script>localStorage.setItem('PANIER',null);</script>";
                     }
                 }              
                 ?>

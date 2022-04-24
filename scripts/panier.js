@@ -205,7 +205,8 @@ function updatecart1() {
             let cost=document.getElementById("thecost").innerHTML;
             cost=cost.replace("TND","");
             localStorage.setItem("cost",cost);
-             window.location.href=`/route/commander.php?id=${id}&cost=${cost}`;
+            let prod=localStorage.getItem("PANIER");
+             window.location.href=`/route/commander.php?id=${id}&cost=${cost}&prod=${prod}`;
         }
     })
     }
