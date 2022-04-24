@@ -16,7 +16,6 @@
         $res2=mysqli_query($con,$req2) or die(mysqli_error($con));
 
         if(mysqli_num_rows($res)!=0){
-            
     ?>
     <ul class="navigator">
         <li><a href="/route"><i class="fas fa-home"></i></a></li>

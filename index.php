@@ -25,6 +25,9 @@
     function commander(){
         require_once("./commander.php");
     }
+    function dashboard(){
+        require_once("./dashboard.php");
+    }
     function page404(){
         die('Page not found. Please try some different url.');
     }
@@ -42,6 +45,9 @@
         panier();
     else if($request==="commander")
         commander();
+    else if($request=="dashboard" && isset($_COOKIE["user"]) && $_COOKIE["user"]!="null"){
+        dashboard();
+    }
     else
         page404();
 ?>
