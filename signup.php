@@ -81,6 +81,21 @@ function verif_formulaire()
    document.formulaire.adresse.focus();
    return false;
   }
+  if(document.getElementById("telephone").value == "")  {
+   alert("Veuillez entrer un numero de telephone!");
+   document.formulaire.telephone.focus();
+   return false;
+  }
+  if(isNaN(document.getElementById("telephone").value)) {
+   alert("Veuillez entrer des chiffres !");
+   document.formulaire.telephone.focus();
+   return false;
+  }
+  if(document.getElementById("telephone").value.length != 8) {
+   alert("Veuillez entrer un numero de 8 chiffres !");
+   document.formulaire.telephone.focus();
+   return false;
+  }
  }
 </script>
   </head>
@@ -106,9 +121,8 @@ function verif_formulaire()
         <label><b>Adresse</b></label>
         <input type="text" placeholder="Entrer votre adresse "id ="adresse" name="adresse" required>
         <label><b>Téléphone</b></label>
-        <input type="tel" name="telphone" id ="telephone" length="8" required/>    
+        <input type="tel" name="telephone" id ="telephone" length="8" required/>  
         
-
         <input type="submit" value="Créer un compte" onclick="verif_formulaire()">
       </form>
       <p>
@@ -126,7 +140,7 @@ function verif_formulaire()
 /*
 extract($_POST);
 include("gtek.sql");
-$sql=mysqli_query($conn,"SELECT * FROM register where Email='$email'");
+$sql=mysqli_query($con,"SELECT * FROM register where Email='$email'");
 if(mysqli_num_rows($sql)>0)
 {
     echo "Email Id Already Exists"; 
@@ -155,40 +169,32 @@ else(isset($_POST['save']))
 <?php
 require('connect.php');
 if (isset($_POST['nom'],$_POST['prenom'], $_POST['email'], $_POST['mdp'])){
-  // récupérer le nom d'utilisateur et supprimer les antislashes ajoutés par le formulaire
+  // récupérer le nom d'utilisateur 
   $nom = $_POST['nom'];
   
-   // récupérer le prenom d'utilisateur et supprimer les antislashes ajoutés par le formulaire 
-  $prenom = stripslashes($_POST['prenom']);
-  $prenom = mysqli_real_escape_string($conn, $prenom); 
-  // récupérer l'email et supprimer les antislashes ajoutés par le formulaire
-  $email = stripslashes($_POST['email']);
-  $email = mysqli_real_escape_string($conn, $email);
-  // récupérer le mot de passe et supprimer les antislashes ajoutés par le formulaire
-  $mdp = stripslashes($_POST['mdp']);
-  $mdp = mysqli_real_escape_string($conn, $mdp);
-   // récupérer la ville et supprimer les antislashes ajoutés par le formulaire
-   $ville = stripslashes($_POST['ville']);
-   $ville = mysqli_real_escape_string($conn, $ville);
-   // récupérer le code postal et supprimer les antislashes ajoutés par le formulaire
-  $code_postal = stripslashes($_POST['code_postal']);
-  $code_postal = mysqli_real_escape_string($conn, $code_postal);
-   // récupérer l'adresse d'utilisateur et supprimer les antislashes ajoutés par le formulaire
-   $adresse = stripslashes($_POST['adresse']);
-   $adresse = mysqli_real_escape_string($conn, $adresse);
-  // récupérer num tel d'utilisateur et supprimer les antislashes ajoutés par le formulaire
-   $telephone = stripslashes($_POST['telephone']);
-  $telephone = mysqli_real_escape_string($conn, $telephone);
+   // récupérer le prenom d'utilisateur  
+  $prenom = $_POST['prenom'];
+  // récupérer l'email 
+  $email =$_POST['email'];
+  // récupérer le mot de passe 
+  $mdp =$_POST['mdp'];
+   // récupérer la ville 
+   $ville =$_POST['ville'];
+   // récupérer le code postal 
+  $code_postal =$_POST['code_postal'];
+   // récupérer l'adresse d'utilisateur 
+   $adresse =$_POST['adresse'];
+  // récupérer num tel d'utilisateur 
+   $telephone =$_POST['telephone'];
   //requéte SQL + mot de passe crypté
     $query = "INSERT into client (nom, prenom, email, mdp, ville, code_postal, adresse, telephone)
-              VALUES ('$nom','$prenom', '$email', '".hash('sha256', $mdp)."', '$ville', '$code_postal', '$adresse', '$telephone')";
+              VALUES ('$nom','$prenom', '$email', '$mdp', '$ville', '$code_postal', '$adresse', '$telephone')";
   // Exécuter la requête sur la base de données
     $res = mysqli_query($con, $query);
     if($res){
-       echo "<div class='sucess'>
-             <h3>Vous êtes inscrit avec succès.</h3>
-             <p>Cliquez ici pour vous <a href='login.php'>connecter</a></p>
-       </div>";
+            header("Location: home.php");
+            exit();
+            // ki ta3mel home page mta3 user connected nbadlou location
     }
 }
 /*
