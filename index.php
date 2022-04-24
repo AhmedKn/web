@@ -30,7 +30,7 @@
         contact_us();
     else if($request == "login")
         login();
-        else if($request == "sign-up")
+    else if($request == "sign-up")
         signup();
     else
         page404();
