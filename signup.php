@@ -1,3 +1,38 @@
+<?php
+require('connect.php');
+if (isset($_POST['nom'],$_POST['prenom'], $_POST['email'], $_POST['mdp'])){
+  // récupérer le nom d'utilisateur 
+  $nom = $_POST['nom'];
+  
+   // récupérer le prenom d'utilisateur  
+  $prenom = $_POST['prenom'];
+  // récupérer l'email 
+  $email =$_POST['email'];
+  // récupérer le mot de passe 
+  $mdp =$_POST['mdp'];
+   // récupérer la ville 
+   $ville =$_POST['ville'];
+   // récupérer le code postal 
+  $code_postal =$_POST['code_postal'];
+   // récupérer l'adresse d'utilisateur 
+   $adresse =$_POST['adresse'];
+  // récupérer num tel d'utilisateur 
+   $telephone =$_POST['telephone'];
+  //requéte SQL + mot de passe crypté
+    $query = "INSERT into client (nom, prenom, email, mdp, ville, code_postal, adresse, telephone)
+              VALUES ('$nom','$prenom', '$email', '$mdp', '$ville', '$code_postal', '$adresse', '$telephone')";
+  // Exécuter la requête sur la base de données
+    $res = mysqli_query($con, $query);
+    if($res){
+            header("Location: home.php");
+            exit();
+            // ki ta3mel home page mta3 user connected nbadlou location
+    }
+    else{
+      echo "can't be undone";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +44,7 @@
     />
     <script type="text/javascript">
 function verif_formulaire()
-{/*
+{
  if(document.getElementById("nom").value== "")  {
   alert("Veuillez entrer votre nom!");
    document.formulaire.nom_agent.focus();
@@ -55,7 +90,7 @@ function verif_formulaire()
    document.formulaire.mdp.focus();
    document.formulaire.cmdp.focus();
    return false;
-  }*/
+  }
   if(document.getElementById("ville").value == "")  {
    alert("Veuillez entrer une ville!");
    document.formulaire.ville.focus();
@@ -136,72 +171,7 @@ function verif_formulaire()
   </body>
 </html>
 
-<?php
-/*
-extract($_POST);
-include("gtek.sql");
-$sql=mysqli_query($con,"SELECT * FROM register where Email='$email'");
-if(mysqli_num_rows($sql)>0)
-{
-    echo "Email Id Already Exists"; 
-	exit;
-}
-else(isset($_POST['save']))
-{
-    $file = rand(1000,100000)."-".$_FILES['file']['name'];
-    $file_loc = $_FILES['file']['tmp_name'];
-    $folder="upload/";
-    $new_file_name = strtolower($file);
-    $final_file=str_replace(' ','-',$new_file_name);
-    if(move_uploaded_file($file_loc,$folder.$final_file))
-    {
-        $query="INSERT INTO register(First_Name, Last_Name, Email, mdp, File ) VALUES ('$first_name', '$last_name', '$email', 'md5($pass)', '$final_file')";
-        $sql=mysqli_query($conn,$query)or die("Could Not Perform the Query");
-        header ("Location: login.php?status=success");
-    }
-    else 
-    {
-		echo "Error.Please try again";
-	}
-}
-*/
-?>
-<?php
-require('connect.php');
-if (isset($_POST['nom'],$_POST['prenom'], $_POST['email'], $_POST['mdp'])){
-  // récupérer le nom d'utilisateur 
-  $nom = $_POST['nom'];
-  
-   // récupérer le prenom d'utilisateur  
-  $prenom = $_POST['prenom'];
-  // récupérer l'email 
-  $email =$_POST['email'];
-  // récupérer le mot de passe 
-  $mdp =$_POST['mdp'];
-   // récupérer la ville 
-   $ville =$_POST['ville'];
-   // récupérer le code postal 
-  $code_postal =$_POST['code_postal'];
-   // récupérer l'adresse d'utilisateur 
-   $adresse =$_POST['adresse'];
-  // récupérer num tel d'utilisateur 
-   $telephone =$_POST['telephone'];
-  //requéte SQL + mot de passe crypté
-    $query = "INSERT into client (nom, prenom, email, mdp, ville, code_postal, adresse, telephone)
-              VALUES ('$nom','$prenom', '$email', '$mdp', '$ville', '$code_postal', '$adresse', '$telephone')";
-  // Exécuter la requête sur la base de données
-    $res = mysqli_query($con, $query);
-    if($res){
-            header("Location: home.php");
-            exit();
-            // ki ta3mel home page mta3 user connected nbadlou location
-    }
-}
-/*
-else{
-?>
-   <p class="box-register">Déjà inscrit? <a href="login.php">Connectez-vous ici</a></p>
-*/
+
 
 
 
