@@ -18,9 +18,10 @@
       $mdp = $_POST['mdp'];
      $query = "SELECT * FROM client WHERE email='$email' and mdp='$mdp'";
       $result = mysqli_query($con,$query) or die(mysqli_error($con));
+      $res=mysqli_fetch_array($result);
       $rows = mysqli_num_rows($result);
       if($rows==1){
-          $_SESSION['email'] = $email;
+        setcookie("user", $res['id_client'], time() + 2 * 24 * 60 * 60);
           header("Location: home.php");
       }else{
         $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";

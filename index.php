@@ -19,6 +19,15 @@
     function product(){
         require_once("./product.php");
     }
+    function panier(){
+        require_once("./panier.php");
+    }
+    function commander(){
+        require_once("./commander.php");
+    }
+    function dashboard(){
+        require_once("./dashboard.php");
+    }
     function page404(){
         die('Page not found. Please try some different url.');
     }
@@ -32,6 +41,13 @@
         login();
     else if($request == "sign-up")
         signup();
+    else if($request==="panier")
+        panier();
+    else if($request==="commander")
+        commander();
+    else if($request=="dashboard" && isset($_COOKIE["user"]) && $_COOKIE["user"]!="null"){
+        dashboard();
+    }
     else
         page404();
 ?>

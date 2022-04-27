@@ -24,9 +24,9 @@ if (isset($_POST['nom'],$_POST['prenom'], $_POST['email'], $_POST['mdp'])){
   // Exécuter la requête sur la base de données
     $res = mysqli_query($con, $query);
     if($res){
+
             header("Location: home.php");
             exit();
-            // ki ta3mel home page mta3 user connected nbadlou location
     }
     else{
       echo "can't be undone";
@@ -131,7 +131,6 @@ function verif_formulaire()
    document.formulaire.telephone.focus();
    return false;
   }
- }
 </script>
   </head>
   <body>

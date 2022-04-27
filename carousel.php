@@ -61,7 +61,7 @@
         </div>
         <div class="app__bg">
             <div class="app__bg__image current--image">
-                <img src="./assets/msi.png" alt="">
+                <img src="./assets/razer.png" alt="">
             </div>
             <div class="app__bg__image next--image">
                 <img src="./assets/msi.png" alt="">

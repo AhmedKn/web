@@ -33,6 +33,7 @@ nav.navbar span i{
 }
 nav.navbar div.nav-btns{
     display: flex;
+    align-items: center;
 }
 nav.navbar div.nav-btns a{
     margin: 0 2px;
@@ -72,4 +73,8 @@ nav.navbar .rgb-border::before{
     100%{
         background-position: 400px 300px;
     }
+}
+p.connected-nav-np{
+    color: white;
+    font-family: 'Poppins',sans-serif;
 }

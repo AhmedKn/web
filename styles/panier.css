@@ -1,0 +1,161 @@
+.panier-section{
+    min-height: 35.8vh;
+    padding: 50px 50px;
+    background-color: var(--primary-dark-gtek);
+    border-top: 1px solid gray;
+}
+.panier-section h1{
+    color:var(--primary-red-gtek);
+    font-family: 'Poppins',sans-serif;
+    position: relative;
+}
+.panier-section h1::after{
+    content: '';
+    width: 15%;
+    height: 1px;
+    background-color: var(--primary-red-gtek);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.panier-section .cart-content .cart-empty-container{
+    padding: 50px 0;
+}
+.panier-section .cart-content .cart-empty-container h2{
+    font-family: 'Poppins',sans-serif;
+    color: gray;
+    margin: 0 auto;
+    width: fit-content;
+}
+.cart-product-card{ 
+    background-color: var(--primary-red-gtek);
+    display: flex;
+    align-items: center;
+    width: 1200px;
+    border-bottom: 1px solid var(--primary-dark-gtek);
+}
+.cart-product-card img{
+width: 300px;
+padding-right: 20px;
+}
+.cart-product-card p.libelleprod{
+    color: white;
+    font-family: 'Poppins',sans-serif;
+    margin-right: 50px;
+}
+.cart-product-card button{
+    width: 40px;
+height: 40px;
+border: none;
+background: var(--primary-dark-gtek);
+color: var(--primary-red-gtek);
+font-size: 27px;
+cursor: pointer;
+}
+.cart-product-card .item-number{
+    width: 40px;
+height: 40px;
+background: white;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.cart-product-card .item-price{
+    margin:0 20px;
+    color: white;
+    font-family: 'Poppins',sans-serif;
+}
+.cruds-sec{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 20px;
+}
+.total-price-section{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+.total-price-section p{
+    color: var(--primary-red-gtek);
+    font-family: 'Poppins',sans-serif;
+    font-size: 28px;
+    padding-right: 5px;
+}
+.total-price-section span{
+    color: white;
+    font-family: sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+#commandbtn{
+    border: none;
+    background-color: var(--primary-red-gtek);
+    color: var(--primary-dark-gtek);
+    padding: 10px 20px;
+    font-family: 'Poppins',sans-serif;
+    cursor: pointer;
+    margin-left: 838px;
+}
+#commandbtn:hover{
+    background-color: var(--primary-dark-gtek);
+    color: var(--primary-red-gtek);
+    border: 1px solid var(--primary-red-gtek);
+}
+.panier-section .cart-content-conf{
+display: flex !important;
+margin-top: -20px;
+align-items: center;
+}
+.panier-section .cart-content-conf p{
+    color: white !important;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Poppins',sans-serif;
+    padding-right: 20px;
+}
+.panier-section p{
+    color: white !important;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Poppins',sans-serif;
+    padding-right: 20px;
+    margin-top: 20px;
+}
+.panier-section .cart-content-conf input{
+    border: none;
+    background-color: var(--primary-red-gtek);
+    border: 1px solid var(--primary-dark-gtek);
+    color: var(--primary-dark-gtek);
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.panier-section .cart-content-conf input:hover{
+    background-color: var(--primary-dark-gtek);
+    border: 1px solid var(--primary-red-gtek);
+    color: var(--primary-red-gtek);
+}
+.panier-section-validated{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 105px 0;
+    background-color: var(--primary-dark-gtek);
+}
+.panier-section-validated i{
+    color: green;
+    font-size: 50px;
+}
+.panier-section-validated h2,.panier-section-validated a{
+    color: white;
+    font-size: 30px;
+    padding-top: 10px;
+    font-family: 'Poppins',sans-serif;
+}
+.panier-section-validated a{
+    text-decoration: underline;
+    font-size: 20px !important;
+    font-family: sans-serif !important;
+}

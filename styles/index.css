@@ -5,10 +5,10 @@
     outline: none !important;
 }
 :root{
-    --primary-dark-gtek:#0B001B;
+    --primary-dark-gtek:#02000a;
     --primary-red-gtek:#EC0000;
     --primary-white-gtek:#B6B6B6;
 }
 body{
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
