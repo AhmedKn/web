@@ -1,3 +1,3 @@
 <?php
-    $con=mysqli_connect("localhost","root","","gtek") or die("database is not connecting...");
+    $con=mysqli_connect("localhost","root","","gtekk") or die("database is not connecting...");
 ?>

@@ -34,7 +34,6 @@ h1:after{
 }
 .commande-container{
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
     background-color: var(--primary-dark-gtek);
     padding: 50px;
@@ -47,6 +46,7 @@ h1:after{
     background-color: var(--primary-dark-gtek);
     padding: 40px;
     border: 1px solid var(--primary-red-gtek);
+    margin: 10px;
 }
 .cmnd p{
     color: white;

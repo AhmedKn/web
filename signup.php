@@ -1,3 +1,37 @@
+<?php
+require('connect.php');
+if (isset($_POST['nom'],$_POST['prenom'], $_POST['email'], $_POST['mdp'])){
+  // récupérer le nom d'utilisateur 
+  $nom = $_POST['nom'];
+  
+   // récupérer le prenom d'utilisateur  
+  $prenom = $_POST['prenom'];
+  // récupérer l'email 
+  $email =$_POST['email'];
+  // récupérer le mot de passe 
+  $mdp =$_POST['mdp'];
+   // récupérer la ville 
+   $ville =$_POST['ville'];
+   // récupérer le code postal 
+  $code_postal =$_POST['code_postal'];
+   // récupérer l'adresse d'utilisateur 
+   $adresse =$_POST['adresse'];
+  // récupérer num tel d'utilisateur 
+   $telephone =$_POST['telephone'];
+  //requéte SQL + mot de passe crypté
+    $query = "INSERT into client (nom, prenom, email, mdp, ville, code_postal, adresse, telephone)
+              VALUES ('$nom','$prenom', '$email', '$mdp', '$ville', '$code_postal', '$adresse', '$telephone')";
+  // Exécuter la requête sur la base de données
+    $res = mysqli_query($con, $query);
+    if($res){
+      header("Location: login.php");
+    }
+    else{
+      echo "can't be undone";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,53 +43,6 @@
     />
     <script type="text/javascript">
 function verif_formulaire()
-{/*
- if(document.getElementById("nom").value== "")  {
-  alert("Veuillez entrer votre nom!");
-   document.formulaire.nom_agent.focus();
-   return false;
-  }
- if(document.getElementById("prenom").value == "")  {
-   alert("Veuillez entrer un prénom!");
-   document.formulaire.prenom.focus();
-   return false;
-  }
- if(document.getElementById("email").value == "") {
-   alert("Veuillez entrer votre adresse électronique!");
-   document.formulaire.email.focus();
-   return false;
-  }
- if(document.getElementById("email").value.indexOf('@') == -1) {
-   alert("Ce n'est pas une adresse électronique!");
-   document.formulaire.email.focus();
-   return false;
-  }
-  if(document.getElementById("email").value.indexOf('.') == -1) {
-   alert("Ce n'est pas une adresse électronique!");
-   document.formulaire.email.focus();
-   return false;
-  }
-  if(document.getElementById("mdp").value == "")  {
-   alert("Veuillez entrer un mot de passe!");
-   document.formulaire.mdp.focus();
-   return false;
-  }
- if(document.getElementById("mdp").value.length < 8) {
-   alert("Veuillez entrer au moins 8 caractères !");
-   document.formulaire.mdp.focus();
-   return false;
-  }
-  if(document.getElementById("cmdp").value == "")  {
-   alert("Veuillez confirmer mot de passe!");
-   document.formulaire.cmdp.focus();
-   return false;
-  }
-  if(document.getElementById("mdp").value != document.getElementById("cmdp").value )  {
-   alert("Verif  mot de passe incorrect!");
-   document.formulaire.mdp.focus();
-   document.formulaire.cmdp.focus();
-   return false;
-  }*/
   if(document.getElementById("ville").value == "")  {
    alert("Veuillez entrer une ville!");
    document.formulaire.ville.focus();
@@ -96,7 +83,6 @@ function verif_formulaire()
    document.formulaire.telephone.focus();
    return false;
   }
- }
 </script>
   </head>
   <body>
@@ -166,42 +152,6 @@ else(isset($_POST['save']))
 }
 */
 ?>
-<?php
-require('connect.php');
-if (isset($_POST['nom'],$_POST['prenom'], $_POST['email'], $_POST['mdp'])){
-  // récupérer le nom d'utilisateur 
-  $nom = $_POST['nom'];
-  
-   // récupérer le prenom d'utilisateur  
-  $prenom = $_POST['prenom'];
-  // récupérer l'email 
-  $email =$_POST['email'];
-  // récupérer le mot de passe 
-  $mdp =$_POST['mdp'];
-   // récupérer la ville 
-   $ville =$_POST['ville'];
-   // récupérer le code postal 
-  $code_postal =$_POST['code_postal'];
-   // récupérer l'adresse d'utilisateur 
-   $adresse =$_POST['adresse'];
-  // récupérer num tel d'utilisateur 
-   $telephone =$_POST['telephone'];
-  //requéte SQL + mot de passe crypté
-    $query = "INSERT into client (nom, prenom, email, mdp, ville, code_postal, adresse, telephone)
-              VALUES ('$nom','$prenom', '$email', '$mdp', '$ville', '$code_postal', '$adresse', '$telephone')";
-  // Exécuter la requête sur la base de données
-    $res = mysqli_query($con, $query);
-    if($res){
-            header("Location: home.php");
-            exit();
-            // ki ta3mel home page mta3 user connected nbadlou location
-    }
-}
-/*
-else{
-?>
-   <p class="box-register">Déjà inscrit? <a href="login.php">Connectez-vous ici</a></p>
-*/
 
 
 

@@ -29,8 +29,19 @@
                     <a href="/route/product.php?id=<?php echo$t['id_produit'] ?>"><?php echo $t['lib'] ?></a>
                     </h3>
                     <p class="post-description"><?php echo$t['description'] ?></p>
-                    <span class="post-date"><i class="fa fa-clock-o"></i><?php echo$t['prix'] ?> TND</span>
-                    <a href="/route/product.php?id=<?php echo$t['id_produit'] ?>" class="read-more"><?php echo$t['promoprix'] ?> TND</a>
+                    <?php
+                        if($t['promoprix']>0){
+                        
+                    ?>
+                      <span class="post-date"><i class="fa fa-clock-o"></i><?php echo$t['promoprix'] ?> TND</span>
+                      <?php
+                        }else {
+                      ?>
+                        <span class="post-date"><i class="fa fa-clock-o"></i><?php echo$t['prix'] ?> TND</span>
+                      <?php
+                        }
+                      ?>
+                    <a onclick="disp({id:<?php echo$t['id_produit']; ?>,lib:'<?php echo$t['lib']; ?>',prix:<?php echo$t['prix']; ?>,prixpromo:<?php echo$t['promoprix']; ?>,img:'<?php echo$t['photo']; ?>',quantite:1})"  class="read-more">Ajouter</a>
                 </div>
             </div>
         <?php } ?>
