@@ -28,7 +28,7 @@ $user_id=intval($_COOKIE["user"]);
         <div class="nav-btns">       
             <p class="connected-nav-np"><?php echo $t['nom'] ?> <?php echo $t['prenom'] ?></p>
             <div class="rgb-border">
-          <a href="/route/dashboard">Dashboard</a>
+          <a href="/route/dashboard.php">Dashboard</a>
           </div>
           <div class="rgb-border">
           <a href="/route/disconnect.php">Déconnexion</a>

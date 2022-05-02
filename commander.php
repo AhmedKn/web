@@ -39,7 +39,7 @@
                 $t=mysqli_fetch_array($res);
                 if(isset($_POST["confirm"])){
                     $date = date('Y-m-d H:i:s');
-                    $query="INSERT INTO commande (id_client,montant,date_enregistrement,etat) VALUES ('$user_id', '$cost',  '$date','livré');";
+                    $query="INSERT INTO commande (id_client,montant,date_enregistrement,etat) VALUES ('$user_id', '$cost',  '$date','en cours de traitement');";
                     $rest = mysqli_query($con, $query) or die(mysqli_error($con));
                     $quer=mysqli_query($con,"SELECT * FROM commande where id_client='$user_id' AND montant='$cost' AND date_enregistrement='$date'") or die(mysqli_error($con));
                     $restt=mysqli_fetch_array($quer);
