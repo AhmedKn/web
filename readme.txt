@@ -1,0 +1,1 @@
+DATABASE_NAME: gtekk /--name it gtekk or replace it in connect.php--\
